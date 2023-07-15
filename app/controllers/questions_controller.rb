@@ -30,4 +30,8 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def new
+    
+  end
+
 end
