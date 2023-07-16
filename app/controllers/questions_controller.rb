@@ -15,6 +15,8 @@ class QuestionsController < ApplicationController
       body: params[:question][:body],
       user_id: params[:question][:user_id]
       )
+
+    redirect_to question_path(@question)
   end
 
   def destroy
@@ -33,6 +35,10 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+  end
+
+  def edit
+    @question = Question.find(params[:id])
   end
 
 end
