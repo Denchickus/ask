@@ -1,11 +1,13 @@
-<h2>Вопрос</h2>
-<p><%= @question.body %></p>
-<p>user_id: <strong><%= @question.user_id %></strong></p>
+<div class="container">
+	<h2 class="title-lg mb">Вопрос <%= @question.id %></h2>
+	<p class="mb-sm"><%= @question.body %></p>
+	<p>user_id: <strong><%= @question.user_id %></strong></p>
+	<div class="mt">
+		<%= link_to fa_icon('pencil'), edit_question_path(@question), title: 'Изменить вопрос' %>
 
-<p><%= link_to 'Изменить вопрос', edit_question_path(@question) %></p>
+	
+		<%= button_to fa_icon('trash-o'), question_path(@question), method: :delete, title: 'Удалить вопрос' %>
+	</div>
 
-<div>
-	<%= button_to 'Удалить вопрос', question_path(@question), method: :delete %>
+	<p class="mt"><%= link_to "Все вопросы", questions_path %></p>	
 </div>
-
-<p><%= link_to "Все вопросы", questions_path %></p>
